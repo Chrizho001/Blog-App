@@ -1,0 +1,253 @@
+
+h1{
+    font-family: "Raleway", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 100px;
+    font-style: normal;
+    font-size: 40px;
+    color: rgb(85, 84, 84);
+    margin-left: 210px;
+    margin-top: 100px;
+    margin-bottom: 10px;
+
+}
+
+
+.main-div{
+    margin-left: 200px;
+    margin-right: 200px;
+    margin-top: 60px;
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: column;
+
+}
+
+.img-div{
+    width: 100%;
+    height: 670px;
+}
+
+.image{
+    width: 95%;
+    height: 650px;
+}
+
+.content-div{
+    width: 95%;
+    margin-bottom: 20px;
+}
+
+.title{
+    display: inline-block;
+    font-family: "Raleway", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 100px;
+    font-style: normal;
+    font-size: 50px;
+    color: rgb(92, 90, 90);
+    margin-bottom: 2px;
+    margin-left: 0;
+    margin-right: 0;
+}
+
+span{
+    font-family: "Raleway", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 100px;
+    font-style: normal;
+    font-size: 12px;
+    color: rgb(92, 90, 90);
+    
+    margin-left: 300px;
+    
+}
+
+.str{
+    display: inline-block;
+    
+}
+
+.author{
+    font-family: "Raleway", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 100px;
+    font-style: normal;
+    font-size: 12px;
+    color: rgb(92, 90, 90);
+    margin-top: 2px;
+    margin-bottom: 30px;
+}
+
+.content-div p:not([class]){
+    font-family: "Raleway", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 100px;
+    font-style: normal;
+    font-size: 20px;
+    color: rgb(92, 90, 90);
+    /* margin-bottom: 60px; */
+}
+
+
+.sim{
+    font-family: "Raleway", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 100px;
+    font-style: normal;
+    font-size: 15px;
+    color: rgb(85, 84, 84);
+    margin-top: 60px;
+
+}
+
+.share-div{
+    width: 95%;
+}
+
+.share{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 600px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding-left: 5px;
+}
+
+.share a{
+    margin-right: 40px;
+}
+
+
+/* similar posts styling */
+
+.similar-div{
+    /* margin-left: 250px; */
+    /* margin-right: 200px; */
+    /* margin-top: 40px; */
+    width: 890px;
+    height: 260px;
+    display: flex;
+    flex-direction: row;
+    column-gap: 5px;
+    row-gap: 5px;
+    padding: 5px;
+}
+
+.thumbnails{
+    width: 220px;
+    height: 310px;
+    padding: 10px;
+    margin-right: 20px;
+
+    
+
+}
+
+.sborder{
+    width: 208px;
+    height: 100px;
+    border-left: rgb(207, 207, 207) solid 1px;
+    border-right: rgb(207, 207, 207) solid 1px;
+    border-bottom: rgb(207, 207, 207) solid 1px;
+    border-radius: 2px;
+    padding: 10px;
+    margin-top: -10px;
+    
+}
+
+.simage{
+    width: 230px;
+    height: 140px;
+    margin-bottom: -5px;
+}
+
+.sauthor-time{
+    display: flex;
+    flex-direction: row;
+    width: 300px;
+    margin-top: 10px;
+    align-items: center;
+    margin-bottom: 0;
+}
+
+.sperson{
+    width: 20px;
+    height: 20px;
+    margin-right: 5px;
+}
+
+.sauthor{
+    display: block;
+    font-family: "Raleway", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 100px;
+    font-style: normal;
+    font-size: 10px;
+    color: rgb(19, 18, 18);
+    margin-right: 10px;
+    margin-bottom: 3px;
+
+}
+
+.stime{
+    font-family: "Raleway", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 100px;
+    font-style: normal;
+    font-size: 10px;
+    color: rgb(19, 18, 18);
+    display: block;
+    margin-top: 2px;
+}
+
+.stitle{
+    font-family: "Raleway", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 100px;
+    font-style: normal;
+    font-size: 12px;
+    color: rgb(68, 67, 67);
+    margin-top: 5px;
+    margin-bottom: 2px;
+}
+
+.sborder p:not([class]){
+    font-family: "Raleway", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 100px;
+    font-style: normal;
+    font-size: 12px;
+    color: rgb(68, 67, 67);
+    margin-top: 2px;
+    margin-bottom: 3px;
+}
+
+
+.sborder p:hover{
+    color: rgb(255, 85, 85);
+}
+.sauthor:hover{
+    color: rgb(255, 85, 85);
+}
+.stime:hover{
+    color: rgb(255, 85, 85);
+}
+
+
+
+.no-sim{
+    font-family: "Raleway", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 100px;
+    font-style: normal;
+    font-size: 20px;
+    color: rgb(92, 90, 90);
+    margin-left: 100px;
+
+}
+
+
+
+

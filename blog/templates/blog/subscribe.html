@@ -1,0 +1,25 @@
+{% load widget_tweaks %}
+{% load static %}
+<div class="form-div">
+    <link rel="stylesheet" href="{% static 'css/subscribe.css ' %}">
+    <h1 class="comm">Join Our Newsletter</h1>
+    <p class="caption">Get the content you need, just when you need it</p>
+    <form action="{% url 'blog:news_subscribe' %}" method="post">
+        {% csrf_token %}
+        <div style="display: inline-block;">
+            <label class="labela" for="form_name">Name*</label>
+            {% render_field form.first_name  id='form_name' class+='form_first_name'%}
+        </div>
+        <div style="display: inline-block; margin-left: 100px;">
+            <label class="labela" for="form_last_name">Last name*</label>
+            {% render_field form.last_name  id='form_last_name' class+='form_llast_name'%}
+        </div>
+        <div style="display: block; margin-top: 20px;">
+            <label class="labela" for="form_email">Email*</label>
+            {% render_field form.email  id='form_email' class+='form_eemail'%}
+        </div>
+        <input type="submit" value="Subscribe" class="btnn">
+    </form>
+</div>
+
+

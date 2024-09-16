@@ -1,0 +1,25 @@
+{% load widget_tweaks %}
+{% load static %}
+<div class="main-form">
+    <link rel="stylesheet" href="{% static 'css/message_form.css' %}">
+    <form action="{% url 'post_message' %}" method="post">
+        {% csrf_token %}
+        <div style="display: inline-block;">
+            <label for="form_name">First Name</label>
+            {% render_field form.name  id='form_name' class+='form_name' %}
+        </div>
+        <div style="display: inline-block;">
+            <label for="form_last_name">Last Name</label>
+            {% render_field form.last_name  id='form_last_name' class+='form_last_name' %}
+        </div>
+        <div style="display: block;">
+            <label for="form_email">Email</label>
+            {% render_field form.email  id='form_email' class+='form_email' %}
+        </div>
+        <div style="display: block;">
+            <label for="form_message">Leave a message...</label>
+            {% render_field form.message  id='form_message' class+='form_message' %}
+        </div>
+        <input type="submit" value="Submit" class="btn">
+    </form>
+</div>

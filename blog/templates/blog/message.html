@@ -1,0 +1,18 @@
+{% extends 'blog/base.html' %}
+{% load static %}
+{% block title %}Leave a Message{% endblock %}
+{% block content %}
+<div class="comment">
+    <link rel="stylesheet" href="{% static 'css/message.css' %}">
+    {% if form %}
+        <h2>Successfuly submitted.</h2>
+        <a href="{% url 'blog:home' %}">
+            <button>Back to the Post</button>
+        </a>
+    {% else %}
+    {% include 'blog/includes/message_form.html' %}
+    {% endif %}
+</div>
+    
+
+{% endblock content %}

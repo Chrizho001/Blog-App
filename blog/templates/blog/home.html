@@ -1,0 +1,66 @@
+{% extends 'blog/base.html' %}
+{% load static %}
+{% block content %}
+{% load widget_tweaks %}
+<link rel="stylesheet" href="{% static 'css\home_blog.css' %}">
+    <div class="main-quote-div">
+        <div class="quote-div">
+            <p class="quote"> “Being a male is a matter of birth. Being a man is a matter of choice.”</p>
+            <p class="author"> — Edwin Louis Cole</p>
+        </div>
+        <div class="image-div">
+            <img class="image" src="{% static 'blog_images\fitmen.jpg' %}" alt="">
+        </div>
+    </div>
+
+    <h1 class="header">Recent Posts</h1>
+    {% for items in recent_posts %}
+        <div class="recent-div-container">
+            <div class="recent-div">
+                <div class="rblog-image">
+                    {% if items.image %}
+                        <img class="blog-image" src="{{ items.image.url }}" alt="">
+                    {% else %}
+                        <p>No image available</p>
+                    {% endif %}
+                </div>
+                <div class="blog-content">
+                    <a class="blog-link" href="{% url 'blog:post_detail' items.id items.slug %}">
+                        <p class="date">{{ items.created }}</p>
+                        <p class="title">{{ items.title }}</p>
+                        <p class="subtitle">{{ items.subtitle }} </p>
+                        <hr style="color: gray;">
+                        <p class="comments">{{ items.num_comments }} comment{{ items.num_comments|pluralize }}</p>
+                        <!-- <p class="comment">{{ items.comment_count }} comment{{ items.comment_count|pluralize }}</p> -->
+                    </a>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+    <!-- {% include 'blog/subscribe.html' %} -->
+
+    <div class="form-div">
+        <link rel="stylesheet" href="{% static 'css/subscribe.css ' %}">
+        <h1 class="comm">Join Our Newsletter</h1>
+        <p class="caption">Get the content you need, just when you need it</p>
+        <form action="{% url 'blog:news_subscribe' %}" id="subscribeForm" method="post">
+            {% csrf_token %}
+            <div style="display: inline-block;">
+                <label class="labela" for="form_name">Name*</label>
+                {% render_field form.first_name  id='form_name' class+='form_first_name'%}
+            </div>
+            <div style="display: inline-block; margin-left: 100px;">
+                <label class="labela" for="form_last_name">Last name*</label>
+                {% render_field form.last_name  id='form_last_name' class+='form_llast_name'%}
+            </div>
+            <div style="display: block; margin-top: 20px;">
+                <label class="labela" for="form_email">Email*</label>
+                {% render_field form.email  id='form_email' class+='form_eemail'%}
+            </div>
+            <input type="submit" value="Subscribe" class="btnn">
+        </form>
+    </div>
+    
+    
+    
+{% endblock  %}

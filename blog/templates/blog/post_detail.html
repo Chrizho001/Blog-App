@@ -1,0 +1,139 @@
+{% extends "blog/base.html" %}
+{% block title %}{{ post.title }}{% endblock %}
+{% block content %}
+{% load static %}
+{% load blog_tags %}
+
+<h1>Blog</h1>
+<div>
+    <meta name="pinterest-rich-pin" content="true" />
+
+    <!-- Facebook meta card tags  -->
+    <meta property="og:title" content="{{ post.title }}" />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="{{ request.build_absolute_uri }}" />
+    {% if post.image %}
+        <meta property="og:image" content="{{ post.image.url }}" />
+    
+        <!-- <meta property="og:image" content="{{ STATIC_URL }}default-image.jpg" /> -->
+    {% endif %}
+    <meta property="og:description" content="{{ post.subtitle|truncatechars:150 }}" />
+    <meta property="og:site_name" content="Struggles" />
+    <meta property="og:locale" content="en_US" />
+</div>
+<div>
+        <!-- Twitter Card meta tags -->
+        <meta name="twitter:card" content="summary_large_image" /> <!-- Options: summary, summary_large_image -->
+        <meta name="twitter:title" content="{{ post.title }}" />
+        <meta name="twitter:description" content="{{ post.subtitle|truncatechars:150 }}" />
+        <meta name="twitter:image" content="{{ post.image.url }}" />  <!-- Post image or featured image -->
+        <meta name="twitter:site" content="@ChrisFr25452277" />
+        <meta name="twitter:url" content="{{ request.build_absolute_uri }}" />
+    
+</div>
+
+
+<div class="main-div">
+    <link rel="stylesheet" href="{% static 'css\post_detail.css' %}">
+    <div>
+        <p class="title">{{ post.title }}<span>{{ post.created }}</span></p>  
+        <p class="author">Published by: {{ post.author }}</p>
+    </div>
+    <div class="img-div">
+        <img class="image" src="{{ post.image.url }}" alt="">
+    </div>
+    <div class="content-div">
+        <p>{{ post.body|markdown }}</p>
+    </div>
+
+    <div class="share-div">
+        <hr style="width: 100%; color: black; margin-bottom: 10px;">
+        <div class="share">
+            <a  href="https://www.facebook.com/sharer/sharer.php?u={{ request.build_absolute_uri }}" target="_blank">
+                <img class="share-img" src="{% static 'blog_images\facebook-app-symbol-removebg-preview.png' %}" width="18px" height="18px" alt="">
+            </a>
+            <a href="https://twitter.com/intent/tweet?text={{ post.title }}&url={{ request.build_absolute_uri }}&via=ChrisFr25452277" target="_blank">
+                <img class="share-img" src="{% static 'blog_images\twitter-removebg-preview.png' %}" width="15px" height="15px" alt="">
+            </a>
+            <a href="https://www.linkedin.com/sharing/share-offsite/?url={{ request.build_absolute_uri }}" target="_blank">
+                <img class="share-img" src="{% static 'blog_images\linkedin-removebg-preview.png' %}" width="15px" height="15px" alt="">
+            </a>
+            <a href="https://pinterest.com/pin/create/button/?url={{ request.build_absolute_uri }}&media={{ post.image.url }}&description={{ post.subtitle|truncatechars:150 }}" target="_blank">
+                <img class="share-img" src="{% static 'blog_images\pinterest.png' %}" width="15px" height="15px" alt="">
+            </a>
+            
+        </div>
+        <hr>
+    </div>
+    
+    
+    
+
+    <h2 class="sim">Similar posts</h2>
+    {% if similar_posts %}
+        <div style="margin-bottom: 40px;">
+            <div class="similar-div">
+                <link rel="stylesheet" href="{% static 'css\post_detail.css' %}">
+                
+                {% for items in similar_posts %}
+                    <div class="thumbnails">
+                        <a href="{{ items.get_absolute_url }}">
+                            <img src="{{ items.image.url }}" class="simage">
+                        </a>
+                        <div class="sborder">
+                            <div class="sauthor-time">
+                                <img src="{% static 'blog_images\person.png' %}" class="sperson" alt="">
+                                <div>
+                                    <p class="sauthor">Admin</p>
+                                    <p class="stime">{{ items.created }}</p>
+                                </div>
+                            </div>
+                            <a href="{{ items.get_absolute_url }}">
+                                <p class="stitle">{{ items.title|markdown_truncate:5 }}</p>
+                            </a>
+                            <hr class="sline">
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    {% else %}
+        <p class="no-sim">There are no similar posts yet..</p>
+    {% endif %}
+                    
+        
+
+        
+    
+    
+</div>
+
+<div>
+    {% include 'blog/comment_form.html' %}
+</div>
+
+    
+{% endblock %}
+<!-- <h1>{{ post.title }}</h1>
+    <p class="date">
+    Published {{ post.publish }} by {{ post.author }}
+    </p>
+    {{ post.body|linebreaks }}
+
+    {% with comments.count as total_comments %}
+    <h2>
+        {{ total_comments }} comment{{ total_comments|pluralize }}
+    </h2>
+    {% endwith %}
+    {% for comment in comments %}
+        <div>
+            <p class="info">
+                Comment {{ forloop.counter }} by {{ comment.name }}
+                {{ comment.created }}
+            </p>
+                {{ comment.body|linebreaks }}
+    
+        </div>
+        {% empty %}
+        <p>There are no comments</p>
+    {% endfor %} -->

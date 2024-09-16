@@ -1,0 +1,52 @@
+{% extends 'blog/base.html' %}
+{% load static %}
+{% block title %}My Blog{% endblock %}
+{% block content %}
+{% load blog_tags %}
+
+<h1>Blogs</h1>
+{% if all_tags %}
+    <div class="tag-div">
+        <p class="tags"> Tags:</p>
+        {% for tag in all_tags %}
+        <a class="tagg" href="{% url 'blog:post_list_by_tag' tag.slug %}">
+            {{ tag.name }}
+        </a>
+        {% endfor %}
+    </div> 
+{% endif %} 
+
+{% if tag %}
+ <h2>Posts tagged with "{{ tag.name }}"</h2>
+{% endif %}
+ 
+<div class="main-div">
+    <link rel="stylesheet" href="{% static 'css\blogss.css' %}">
+    
+    {% for items in posts %}
+        <div class="thumbnails">
+            <img src="{{ items.image.url }}" class="image">
+            <div class="border">
+                <div class="author-time">
+                    <img src="{% static 'blog_images\person.png' %}" class="person" alt="">
+                    <div style="margin-top: 2px;">
+                        <p class="author">Admin</p>
+                        <p class="time">{{ items.created }}</p>
+                    </div>
+                </div>
+                <a href="{% url 'blog:post_detail' items.id items.slug %}">
+                    <p class="title">{{ items.title }}</p>
+                    <p class="subtitle">{{ items.subtitle|markdown|truncatewords_html:25 }}</p>
+                </a>
+                <hr class="line">
+                <p class="comments">{{ items.num_comments }} comment{{ items.num_comments|pluralize }}</p>
+                            <!-- <p class="comments">{{ items.comment_count }} comment{{ items.comment_count|pluralize }}</p> -->
+            </div>  
+        </div>
+    {% endfor %}
+
+
+</div>
+
+{% include "blog/pagination.html" with page=posts %}
+{% endblock %}

@@ -1,0 +1,118 @@
+.form-div{
+    margin-top: 100px;
+    margin-left: 200px;
+    margin-right: 200px;
+    margin-bottom: 50px;
+    width: 85%;
+}
+
+.comm{
+    font-family: "Raleway", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 100px;
+    font-style: normal;
+    font-size: 60px;
+    color: rgb(37, 37, 37);
+    margin-left: 0px;
+    margin-bottom: 60px;
+    
+}
+
+.labela{
+    display: block;
+    margin-bottom: 3px;
+    font-family: "Raleway", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 200px;
+    font-style: normal;
+    font-size: 15px;
+    color: rgb(36, 35, 35);
+
+}
+
+.form_nname{
+    border: none;
+    border-bottom: 2px solid #000; /* Creates the underline */
+    padding: 5px;
+    outline: none; /* Removes the default outline when focused */
+    width: 340px; /* Adjusts width as needed */
+    margin-top: 2px;
+    margin-bottom: 10px;
+    font-family: "Raleway", sans-serif;
+    font-optical-sizing: auto;
+    
+  }
+  
+.form_nname:focus {
+    border-bottom-color: rgb(253, 145, 44); /* Changes the underline color on focus */
+  }
+.form_nname:hover{
+        border-color: rgb(253, 145, 44);
+     
+  }
+.form_eemail{
+    border: none;
+    border-bottom: 2px solid #000; /* Creates the underline */
+    padding: 5px;
+    outline: none; /* Removes the default outline when focused */
+    width: 340px; /* Adjusts width as needed */
+    margin-top: 2px;
+    margin-bottom: 10px;
+    font-family: "Raleway", sans-serif;
+    font-optical-sizing: auto;
+    
+  }
+  
+  .form_eemail:focus {
+    border-bottom-color: rgb(253, 145, 44); /* Changes the underline color on focus */
+  }
+.form_eemail:hover{
+    border-color: rgb(253, 145, 44);
+}
+
+.form_bbody{
+    border: none;
+    border-bottom: 2px solid #000; /* Creates the underline */
+    padding: 5px;
+    outline: none; /* Removes the default outline when focused */
+    width: 800px; /* Adjusts width as needed */
+    height: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-family: "Raleway", sans-serif;
+    font-optical-sizing: auto;
+    
+  }
+  
+  .form_bbody:focus {
+    border-bottom-color: rgb(253, 145, 44); /* Changes the underline color on focus */
+  }
+
+  .form_bbody:hover{
+    border-color: rgb(253, 145, 44);
+ }
+  
+
+.btnn{
+    height: 40px;
+    width: 150px;
+    background-color: white;
+    color: rgb(43, 42, 42);
+    margin-top: 10px;
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    font-family: "Raleway", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 200px;
+    font-style: normal;
+    font-size: 18px;
+}
+
+.btnn:hover{
+    background-color: black;
+    color: white;
+}
+
+

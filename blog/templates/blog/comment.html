@@ -1,0 +1,18 @@
+{% extends 'blog/base.html' %}
+{% load static %}
+{% block title %}Add a comment {% endblock %}
+{% block content %}
+<div class="comment">
+    <link rel="stylesheet" href="{% static 'css/comment.css' %}">
+    {% if comment %}
+        <h2>Successfuly submitted.</h2>
+        <a href="{{ post.get_absolute_url }}">
+            <button>Back to the Post</button>
+        </a>
+    {% else %}
+    {% include 'blog/includes/comment_form.html' %}
+    {% endif %}
+</div>
+    
+
+{% endblock content %}

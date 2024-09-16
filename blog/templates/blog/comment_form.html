@@ -1,0 +1,22 @@
+{% load widget_tweaks %}
+{% load static %}
+<div class="form-div">
+    <link rel="stylesheet" href="{% static 'css/comment_form.css ' %}">
+    <h1 class="comm">Join the Conversations</h1>
+    <form action="{% url 'blog:post_comment' post.id %}" method="post">
+        {% csrf_token %}
+        <div style="display: inline-block;">
+            <label class="labela" for="form_name">Name*</label>
+            {% render_field form.name  id='form_name' class+='form_nname'%}
+        </div>
+        <div style="display: inline-block; margin-left: 100px;">
+            <label class="labela" for="form_email">Email*</label>
+            {% render_field form.email  id='form_email' class+='form_eemail'%}
+        </div>
+        <div style="margin-top: 50px;">
+            <label class="labela" for="form_body">Leave a Comment....</label>
+            {% render_field form.body id='form_body' class+='form_bbody'%}
+        </div>
+        <input type="submit" value="Submit" class="btnn">
+    </form>
+</div>

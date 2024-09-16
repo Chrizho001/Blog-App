@@ -1,0 +1,51 @@
+.comment{
+    margin-top: 100px;
+    margin-left: 400px;
+    width: 35%;
+    height: 200px;
+    padding: 30px;
+    background-color: rgb(2, 6, 63);
+}
+
+h2{
+    margin-bottom: 30px;
+    margin-left: 50px;
+    font-family: "Raleway", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 100px;
+    font-style: normal;
+    font-size: 35px;
+    color: rgb(252, 250, 249);
+
+}
+
+
+a{
+    text-decoration: none;
+}
+
+button{
+    height: 45px;
+    width: 190px;
+    border: white solid 2px;
+    color: rgb(253, 251, 251);
+
+    background-color: rgb(2, 6, 63);
+    margin-top: 10px;
+    margin-left: 50px;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    font-family: "Raleway", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 200px;
+    font-style: normal;
+    font-size: 18px;
+    }
+
+button:hover{
+        background-color: white;
+        color: rgb(2, 6, 63);
+    }
+    

@@ -1,0 +1,161 @@
+{% load static %}
+{% load widget_tweaks %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'css\blog.css' %}">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@200..800&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Abel&display=swap" rel="stylesheet">
+
+
+    
+
+    
+</head>
+<body>
+    <div class="main-topnav">
+        <div class="topnav-div">
+            <div class="topnav-div1">
+                <p class="blog-name" >Struggles </p>
+                <p class="blog-caption">Man's quest for Success</p>
+            </div>
+            <div class="topnav-div2">
+                <a href="{% url 'blog:home' %}">
+                    <p class="nav-links">Home</p>
+                </a>
+                <a href="{% url 'blog:blogs' %}">
+                    <p class="nav-links">Blog</p>
+                </a>
+                <a href="#">
+                    <p class="nav-links">About</p>
+                </a>
+                <!-- <a href="#">
+                    <button class="login">Login</button>
+                </a> -->
+               
+            </div>
+        </div>
+    </div>
+    <div style="margin-top: 200px;">
+        {% block content %}
+        
+        {% endblock %}
+
+
+
+    </div>
+
+    <footer class="footer">
+        <link rel="stylesheet" href="{% static 'css\blog.css' %}">
+        <div class="footer-div">
+            <ul class="infos">
+                <li class="icons-li">
+                    <div class="icons-div">
+                        <img class="icon" src="{% static 'blog_images\white_fb-removebg-preview.png' %}" alt="">
+                        <img class="icon" src="{% static 'blog_images\twitt-removebg-preview.png' %}" alt="">
+                        <img class="icon" src="{% static 'blog_images\white_instagram-removebg-preview.png' %}" alt="">
+                    </div>
+                </li>
+                <li>
+                    <p class="b-name">Struggles</p>
+                </li>
+                <li>
+                    <p class="contact">+234 7033216285 <br>chrisfriday033@gmail.com</p>
+                </li>
+                <li>
+                    <p class="copyright">&copy; 2024 by Struggles. <br>Powered and Secured by Christopher Jr Inc.</p>
+                </li>
+            </ul>
+        </div>
+
+        <div class="message-div">
+            <link rel="stylesheet" href="{% static 'css/message_form.css' %}">
+            <h1 class="com">Ask me anything..</h1>
+            <div class="main-form">
+                <form action="{% url 'blog:post_message' %}" method="post">
+                    {% csrf_token %}
+                    <div style="display: inline-block;">
+                        <label for="form_name">First Name</label>
+                        {% render_field footer_message_form.name id='form_name' class+='form_name' %}
+                    </div>
+                    <div style="display: inline-block;">
+                        <label for="form_last_name">Last Name</label>
+                        {% render_field footer_message_form.last_name id='form_last_name' class+='form_last_name' %}
+                    </div>
+                    <div style="display: block;">
+                        <label for="form_email">Email</label>
+                        {% render_field footer_message_form.email id='form_email' class+='form_email' %}
+                    </div>
+                    <div style="display: block;">
+                        <label for="form_message">Leave a message...</label>
+                        {% render_field footer_message_form.message id='form_message' class+='form_message' %}
+                    </div>
+                    <input type="submit" value="Submit" class="btn">
+                </form>
+            </div>
+        </div>
+    </footer>
+    
+
+</body>
+<!-- Add a message area for feedback -->
+<div id="message" style="display: none; color: green;">Thank you for subscribing!</div>
+
+<!-- Include the JavaScript directly in your template -->
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    const form = document.getElementById('subscribeForm');
+    const messageDiv = document.getElementById('message');
+
+    form.addEventListener('submit', function (event) {
+        event.preventDefault();  // Prevent the default form submission
+
+        // Create a FormData object to hold form data
+        const formData = new FormData(form);
+
+        // Send the form data via AJAX
+        fetch(form.action, {
+            method: 'POST',
+            body: formData,
+            headers: {
+                'X-CSRFToken': document.querySelector('[name=csrfmiddlewaretoken]').value
+            }
+        }).then(response => {
+            if (response.ok) {
+                // Show the success message
+                messageDiv.style.display = 'block';
+                messageDiv.textContent = 'Thank you for subscribing!';
+                
+                // Scroll back to the top of the page
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+
+                // Optionally clear the form fields
+                form.reset();
+            } else {
+                // Handle form errors or display an error message
+                messageDiv.style.display = 'block';
+                messageDiv.textContent = 'Something went wrong. Please try again.';
+            }
+        }).catch(error => {
+            console.error('Error:', error);
+            messageDiv.style.display = 'block';
+            messageDiv.textContent = 'An error occurred. Please try again.';
+        });
+    });
+});
+</script>
+
+</html>
